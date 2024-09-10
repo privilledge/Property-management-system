@@ -1,0 +1,182 @@
+/* src/Sidebar.css */
+
+.sidebar {
+  width: 180px;
+  background-color: #6674bb !important;
+  color: #fff;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: none;
+  border-right: 1px solid #bfbfbf;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  justify-content: space-between !important;
+}
+.sidebar ul li:hover {
+  background-color: #aab4e9 !important;
+  cursor: pointer;
+}
+
+.sidebar ul li {
+  padding: 15px 15px 20px 20px;
+  text-align: left;
+}
+
+/* .sidebar .links .active {
+  background-color: #eeebf4;
+} */
+a {
+  text-decoration: none !important;
+}
+.links li a .text {
+  font-size: 15px !important;
+  margin-left: 15% !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+.links .li a {
+  color: red !important;
+  text-decoration: none !important;
+}
+.main-content {
+  margin-left: 180px;
+  margin-right: 10px;
+  min-height: 680px;
+  transition: margin-left 0.4s;
+  background-color: #e5eaff !important;
+}
+
+.links {
+  margin-top: 25%;
+  margin-left: 1%;
+}
+.settings {
+  margin-top: 64%;
+}
+.logo {
+  font-family: "Brush Script MT", cursive;
+  font-size: 44px;
+}
+/* Adjust main content margin for smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;
+    overflow: hidden;
+  }
+  .links li .text {
+    display: none;
+  }
+  .main-content {
+    margin-left: 60px;
+  }
+  .settings {
+    position: fixed;
+    bottom: 0 !important;
+  }
+  .side-logo {
+    display: none !important;
+  }
+  .links {
+    margin-top: 96%;
+  }
+}
+svg {
+  color: #ffffff;
+}
+.imageIcon {
+  justify-content: flex-end !important;
+  align-items: flex-end !important;
+}
+.topbar {
+  margin-top: 0 !important;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff !important;
+  box-shadow: 0px 0px 0px 0px #6674bb;
+}
+.search-input {
+  border: 1px solid #c7d3ff;
+  border-radius: 20px;
+  width: 40%;
+  height: 90%;
+  padding-left: 10px;
+  font-size: 14px;
+}
+.card-group .card {
+  border: none !important;
+  border-radius: 0;
+  min-height: fit-content !important;
+  background: url(./assets/img/blob-top-left.png),
+    url(./assets/img/blob-top-right.png), url(./assets/img/blob-bottom-left.png),
+    url(./assets/img/blob-bottom-right.png), url(./assets/img/blob-center.png),
+    #9aa9ff !important;
+  background-position: left 0px top 0px, right 0px top 0px, left 0px bottom 0px,
+    right 0px bottom 0px, center center !important;
+  background-repeat: no-repeat;
+}
+.card {
+  border: none !important;
+}
+
+.card-body .card-title {
+  color: rgb(105, 105, 105);
+}
+.properties .card-title {
+  justify-content: space-between;
+}
+.stats .card {
+  background-color: #fff !important;
+  min-height: 300px !important;
+}
+.card-title .add-button {
+  color: #fff;
+  font-weight: 500;
+  background-color: #6674bb !important;
+}
+.card-title .add-button:hover {
+  background-color: #aab4e9 !important;
+  color: #fff;
+}
+.btn-add {
+  color: #fff !important;
+
+  background-color: #6674bb !important;
+}
+.btn-add:hover {
+  color: #fff !important;
+  background-color: #aab4e9 !important;
+}
+.lease-overview ul {
+  list-style: none !important;
+}
+.lease-overview ul li {
+  padding: 2px;
+}
+.form-group label {
+  color: gray;
+  font-size: 14px;
+}
+.modal-footer-buttons {
+  justify-content: space-between !important;
+}
+.add-item .form-group {
+  margin-top: 20px;
+}
+/* .card1 {
+  background: linear-gradient(to right, #00bfff, #b2ffff);
+  color: #fff !important;
+}
+.card2 {
+  background: linear-gradient(to right, #4b9cd3, #3eb8f1);
+  color: #fff !important;
+}
+.card3 {
+  background: linear-gradient(to right, #2cb27f, #32b383);
+  color: #fff !important;
+} */
