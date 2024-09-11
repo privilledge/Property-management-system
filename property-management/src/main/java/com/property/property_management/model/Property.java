@@ -2,11 +2,15 @@ package com.property.property_management.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "property")
 public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String name;
     private String address;
@@ -15,6 +19,18 @@ public class Property {
     private String type;
     private String propertyManager;
     private String contactEmail;
+    private String contactPhone;
+
+    public List<Unit> getUnits() {
+        return units;
+    }
+
+    public void setUnits(List<Unit> units) {
+        this.units = units;
+    }
+
+    @OneToMany(mappedBy = "property",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Unit> units=new ArrayList<>();
 
     public String getTotalTenants() {
         return totalTenants;
@@ -72,7 +88,7 @@ public class Property {
 //        this.maintenanceRequests = maintenanceRequests;
 //    }
 
-    private String contactPhone;
+
 //    @ElementCollection
 //    private List maintenanceRequests;
 

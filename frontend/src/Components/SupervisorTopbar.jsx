@@ -1,11 +1,12 @@
+import SearchBar from "./Searchbar";
 function SupervisorTopbar() {
   return (
     <>
       <div className="topbar">
-        <div className="container mt-2">
-          <h5>Codeluxe Property Management System</h5>
+        <div className=" mt-2">
+          {/* <h5>Codeluxe Property Management System</h5> */}
         </div>
-        <div className="imageIcon d-flex px-4">
+        <div className="imageIcon d-flex ">
           <svg
             stroke="currentColor"
             fill="gray"

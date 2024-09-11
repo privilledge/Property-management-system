@@ -1,13 +1,8 @@
-package com.property.property_management.model;
-
-import jakarta.persistence.*;
+package com.property.property_management.dto;
 
 import java.util.Date;
 
-@Entity
-public class Unit {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UnitDto {
     private Long id;
     private String floor;
     private String size;
@@ -18,19 +13,7 @@ public class Unit {
     private Boolean isAvailable;
     private Date leaseStartDate;
     private Date leaseEndDate;
-    @ManyToOne
-    @JoinColumn(name = "property_id",nullable = false)
-    private Property property;
-
-
-
-    public Property getProperty() {
-        return property;
-    }
-
-    public void setProperty(Property property) {
-        this.property = property;
-    }
+    private Long propertyId;
 
     public Long getId() {
         return id;
@@ -110,5 +93,13 @@ public class Unit {
 
     public void setLeaseEndDate(Date leaseEndDate) {
         this.leaseEndDate = leaseEndDate;
+    }
+
+    public Long getPropertyId() {
+        return propertyId;
+    }
+
+    public void setPropertyId(Long propertyId) {
+        this.propertyId = propertyId;
     }
 }
