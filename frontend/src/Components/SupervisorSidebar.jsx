@@ -15,7 +15,7 @@ function SupervisorSidebar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 24 24"
                   height="1em"
                   width="1em"
@@ -36,21 +36,21 @@ function SupervisorSidebar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 16 16"
                   height="1em"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M15.285.089A.5.5 0 0115.5.5v15a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5V14h-1v1.5a.5.5 0 01-.5.5H1a.5.5 0 01-.5-.5v-6a.5.5 0 01.418-.493l5.582-.93V3.5a.5.5 0 01.324-.468l8-3a.5.5 0 01.46.057zM7.5 3.846V8.5a.5.5 0 01-.418.493l-5.582.93V15h8v-1.5a.5.5 0 01.5-.5h2a.5.5 0 01.5.5V15h2V1.222l-7 2.624z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M6.5 15.5v-7h1v7h-1z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                   <path d="M2.5 11h1v1h-1v-1zm2 0h1v1h-1v-1zm-2 2h1v1h-1v-1zm2 0h1v1h-1v-1zm6-10h1v1h-1V3zm2 0h1v1h-1V3zm-4 2h1v1h-1V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm-2 2h1v1h-1V7zm2 0h1v1h-1V7zm-4 0h1v1h-1V7zm0 2h1v1h-1V9zm2 0h1v1h-1V9zm2 0h1v1h-1V9zm-4 2h1v1h-1v-1zm2 0h1v1h-1v-1zm2 0h1v1h-1v-1z"></path>
                 </svg>
@@ -64,7 +64,7 @@ function SupervisorSidebar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 640 512"
                   height="1em"
                   width="1em"
@@ -82,7 +82,7 @@ function SupervisorSidebar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -100,7 +100,7 @@ function SupervisorSidebar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 384 512"
                   height="1em"
                   width="1em"
@@ -118,7 +118,7 @@ function SupervisorSidebar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 24 24"
                   height="1em"
                   width="1em"
@@ -127,7 +127,7 @@ function SupervisorSidebar() {
                   <path
                     fill="none"
                     stroke="#fff"
-                    stroke-width="2"
+                    strokeWidth="2"
                     d="M19,9.9999 L19,1.9999 L7,1.9999 L7,13.9999 L14,13.9999 L14,6.9999 L2,6.9999 L2,18.9999 L10,18.9999 M14,23 L20,17 M21,14 C19.8954305,14 19,14.8954305 19,16 C19,17.1045695 19.8954305,18 21,18 C22.1045695,18 23,17.1045695 23,16"
                   ></path>
                 </svg>
@@ -141,7 +141,7 @@ function SupervisorSidebar() {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 24 24"
                   height="1em"
                   width="1em"

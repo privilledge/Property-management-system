@@ -12,7 +12,7 @@ public class Property {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-    private String name;
+    private String propertyName;
     private String address;
     private String totalTenants;
     private String totalUnits;
@@ -101,12 +101,12 @@ public class Property {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getPropertyName() {
+        return propertyName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPropertyName(String propertyName) {
+        this.propertyName = propertyName;
     }
 
 

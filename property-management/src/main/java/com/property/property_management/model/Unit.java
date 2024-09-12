@@ -22,6 +22,9 @@ public class Unit {
     @JoinColumn(name = "property_id",nullable = false)
     private Property property;
 
+    public Unit(Property property) {
+        this.property = property;
+    }
 
 
     public Property getProperty() {

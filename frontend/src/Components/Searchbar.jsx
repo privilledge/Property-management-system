@@ -13,7 +13,7 @@ function SearchBar() {
           <svg
             stroke="currentColor"
             fill="gray"
-            stroke-width="0"
+            strokeWidth="0"
             viewBox="0 0 496 512"
             height="2.3em"
             width="2.3em"

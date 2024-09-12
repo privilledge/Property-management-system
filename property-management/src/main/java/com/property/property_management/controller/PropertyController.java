@@ -61,7 +61,7 @@ public class PropertyController {
            property.setPropertyManager(updatedProperty.getPropertyManager());
            property.setContactEmail(updatedProperty.getContactEmail());
            property.setContactPhone(updatedProperty.getContactPhone());
-           property.setName(updatedProperty.getName());
+           property.setPropertyName(updatedProperty.getPropertyName());
            property.setTotalTenants(updatedProperty.getTotalTenants());
            property.setTotalUnits(updatedProperty.getTotalUnits());
            property.setType(updatedProperty.getType());

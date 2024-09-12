@@ -67,7 +67,7 @@ a {
   font-size: 44px;
 }
 /* Adjust main content margin for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 908px) {
   .sidebar {
     width: 60px;
     overflow: hidden;

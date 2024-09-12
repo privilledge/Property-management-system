@@ -45,39 +45,36 @@ function AddProperty({ show, onClose }) {
 
               <div class="form-row row">
                 <div class="form-group col-md-6">
-                  <label for="inputCity">City</label>
-                  <input type="text" class="form-control" id="inputCity" />
+                  <label for="inputCity">Total tenants</label>
+                  <input type="number" class="form-control" id="inputCity" />
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="inputState">State</label>
-                  <select id="inputState" class="form-control">
-                    <option selected>Select state</option>
-                    <option>Harare</option>
-                    <option>Bulawayo</option>
-                  </select>
+                  <label for="inputState">Total Units/Rooms</label>
+                  <input type="number" class="form-control" id="inputCity" />
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="inputZip">Zip</label>
+                  <label for="inputZip">Manager</label>
                   <input type="text" class="form-control" id="inputZip" />
                 </div>
               </div>
               <div className="row">
                 <div class="form-group col-md-6">
-                  <label for="inputAddress2">Units / Rooms</label>
+                  <label for="inputAddress2">Contact email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="inputAddress2"
+                    placeholder="example@gmail.com"
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputAddress2">Contact phone</label>
                   <input
                     type="number"
                     class="form-control"
                     id="inputAddress2"
-                  />
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputAddress2">Manager's email</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputAddress2"
-                    placeholder="johndoe@gmail.com"
+                    placeholder="0748234198"
                   />
                 </div>
               </div>

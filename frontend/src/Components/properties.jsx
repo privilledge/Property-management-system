@@ -2,13 +2,14 @@ import { Modal } from "bootstrap";
 import SupervisorSidebar from "./SupervisorSidebar";
 import SupervisorTopbar from "./SupervisorTopbar";
 import AddProperty from "./AddProperty";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropertyDetails from "./PropertyDetails";
 import SearchBar from "./Searchbar";
 
 function Properties() {
   const [showAddModal, setAddShowModal] = useState(false);
   const [showPropertyModal, setShowPropertyModal] = useState(false);
+  const [properties, setProperties] = useState([]);
   const handleShowAddModal = () => {
     setAddShowModal(true);
   };
@@ -21,6 +22,27 @@ function Properties() {
   const handleHidePropertyModal = () => {
     setShowPropertyModal(false);
   };
+
+  useEffect(() => {
+    const getProperties = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:9090/property/properties"
+        );
+        if (response.ok) {
+          console.log("Fetched");
+        } else {
+          console("Fetched but another error occured");
+        }
+        const data = await response.json();
+        console.log(data);
+        setProperties(data);
+      } catch (error) {
+        console.log("failed to fetch");
+      }
+    };
+    getProperties();
+  }, []);
 
   return (
     <>
@@ -45,24 +67,18 @@ function Properties() {
                 </tr>
               </thead>
               <tbody>
-                <tr onClick={viewPropertyDetails} style={{ cursor: "pointer" }}>
-                  <td>John Doe</td>
-                  <td>Joina City</td>
-                  <td>15th floor left wing</td>
-                  <td>23-10-2024</td>
-                </tr>
-                <tr>
-                  <td>Tom Mayor</td>
-                  <td>123 Mainway</td>
-                  <td>Full-house</td>
-                  <td>12-11-2024</td>
-                </tr>
-                <tr>
-                  <td>Jane Knox</td>
-                  <td>21 Streetwise</td>
-                  <td>Office 14</td>
-                  <td>21-12-2024</td>
-                </tr>
+                {properties.map((property) => (
+                  <tr
+                    onClick={viewPropertyDetails}
+                    style={{ cursor: "pointer" }}
+                    key={property.id}
+                  >
+                    <td>{property.propertyName}</td>
+                    <td>{property.totalUnits}</td>
+                    <td>{property.totalTenants}</td>
+                    <td>{property.address}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

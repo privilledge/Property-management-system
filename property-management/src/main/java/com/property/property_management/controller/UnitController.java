@@ -26,16 +26,31 @@ public class UnitController {
         this.propertyRepository = propertyRepository;
     }
 
+
     @PostMapping("/addUnit")
-    public ResponseEntity<?> addUnit(@RequestBody Unit unit, UnitDto unitDto){
-        Optional<Property> selectedProperty=propertyRepository.findById(unitDto.getPropertyId());
-        if(selectedProperty.isPresent()){
+    public ResponseEntity<?> addUnit(@RequestBody UnitDto unitDto){
+        Optional<Property> selectedProperty = propertyRepository.findById(unitDto.getPropertyId());
+
+        if (selectedProperty.isPresent()) {
+            Unit unit = new Unit(selectedProperty.get());
+            // Set the property here
+            unit.setBathrooms(unitDto.getBathrooms());
+            unit.setFloor(unitDto.getFloor());
+            unit.setRentAmount(unitDto.getRentAmount());
+            unit.setRooms(unitDto.getRooms());
+            unit.setSize(unitDto.getSize());
+            unit.setStatus(unitDto.getStatus());
+            unit.setAvailable(unitDto.getAvailable());
+            unit.setLeaseStartDate(unitDto.getLeaseStartDate());
+            unit.setLeaseEndDate(unitDto.getLeaseEndDate());
+
             unitRepository.save(unit);
             return ResponseEntity.ok("Unit added");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Property not found");
         }
-        else return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not found");
-
     }
+
 
     @GetMapping("/getAllUnits")
     public List<Unit> getAllUnits(){

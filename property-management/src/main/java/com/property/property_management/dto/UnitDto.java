@@ -1,9 +1,15 @@
 package com.property.property_management.dto;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.Date;
 
 public class UnitDto {
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
     private String floor;
     private String size;
     private String rooms;
@@ -15,13 +21,13 @@ public class UnitDto {
     private Date leaseEndDate;
     private Long propertyId;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
     public String getFloor() {
         return floor;
