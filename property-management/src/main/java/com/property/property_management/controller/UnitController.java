@@ -21,9 +21,11 @@ public class UnitController {
     private UnitRepository unitRepository;
     @Autowired
     private PropertyRepository propertyRepository;
+
     public UnitController(UnitRepository unitRepository, PropertyRepository propertyRepository) {
         this.unitRepository = unitRepository;
         this.propertyRepository = propertyRepository;
+
     }
 
 
@@ -33,7 +35,7 @@ public class UnitController {
 
         if (selectedProperty.isPresent()) {
             Unit unit = new Unit(selectedProperty.get());
-            // Set the property here
+
             unit.setBathrooms(unitDto.getBathrooms());
             unit.setFloor(unitDto.getFloor());
             unit.setRentAmount(unitDto.getRentAmount());
@@ -68,26 +70,39 @@ public class UnitController {
     }
 
     @PutMapping("/editUnit/{id}")
-    public ResponseEntity<?> editUnit(@RequestBody Unit unit,@PathVariable Long id){
-        Optional<Unit> selectedUnit=unitRepository.findById(id);
-        if(selectedUnit.isPresent()){
-            Unit updatedUnit= selectedUnit.get();
+    public ResponseEntity<?> editUnit(@RequestBody UnitDto unitDto, @PathVariable Long id) {
+        Optional<Unit> selectedUnit = unitRepository.findById(id);
 
-            updatedUnit.setAvailable(unit.getAvailable());
-            updatedUnit.setBathrooms(unit.getBathrooms());
-            updatedUnit.setLeaseEndDate(unit.getLeaseEndDate());
-            updatedUnit.setLeaseStartDate(unit.getLeaseStartDate());
-            updatedUnit.setFloor(unit.getFloor());
-            updatedUnit.setRentAmount(unit.getRentAmount());
-            updatedUnit.setRooms(unit.getRooms());
-            updatedUnit.setSize(unit.getSize());
-            updatedUnit.setStatus(unit.getStatus());
+        if (selectedUnit.isPresent()) {
+            Unit updatedUnit = selectedUnit.get();
+            Optional<Property> selectedProperty = propertyRepository.findById(unitDto.getPropertyId());
 
-            unitRepository.save(unit);
-            return ResponseEntity.ok("unit updated");
+            if (selectedProperty.isPresent()) {
+                Property property = selectedProperty.get();
+
+                // Update the existing unit
+                updatedUnit.setProperty(property); // Set the property object
+                updatedUnit.setAvailable(unitDto.getAvailable());
+                updatedUnit.setBathrooms(unitDto.getBathrooms());
+                updatedUnit.setLeaseEndDate(unitDto.getLeaseEndDate());
+                updatedUnit.setLeaseStartDate(unitDto.getLeaseStartDate());
+                updatedUnit.setFloor(unitDto.getFloor());
+                updatedUnit.setRentAmount(unitDto.getRentAmount());
+                updatedUnit.setRooms(unitDto.getRooms());
+                updatedUnit.setSize(unitDto.getSize());
+                updatedUnit.setStatus(unitDto.getStatus());
+
+                unitRepository.save(updatedUnit);
+
+                return ResponseEntity.ok("Unit updated");
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Property not found");
+            }
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Unit not found");
         }
-        else return ResponseEntity.status(HttpStatus.NOT_FOUND).body("unit Not found");
     }
+
 
     @DeleteMapping("/deleteUnit/{id}")
     public String deleteUnit(@PathVariable Long id,Unit unit){
