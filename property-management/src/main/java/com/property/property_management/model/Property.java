@@ -79,18 +79,6 @@ public class Property {
     public void setContactPhone(String contactPhone) {
         this.contactPhone = contactPhone;
     }
-//
-//    public List getMaintenanceRequests() {
-//        return maintenanceRequests;
-//    }
-//
-//    public void setMaintenanceRequests(List maintenanceRequests) {
-//        this.maintenanceRequests = maintenanceRequests;
-//    }
-
-
-//    @ElementCollection
-//    private List maintenanceRequests;
 
 
     public Long getId() {
