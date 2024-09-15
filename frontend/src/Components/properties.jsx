@@ -38,7 +38,7 @@ function Properties() {
         console.log(data);
         setProperties(data);
       } catch (error) {
-        console.log("failed to fetch");
+        console.log("failed to fetch", error);
       }
     };
     getProperties();
