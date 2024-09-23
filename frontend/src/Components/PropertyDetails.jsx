@@ -1,99 +1,129 @@
+import { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
+import SupervisorSidebar from "./SupervisorSidebar";
+import SupervisorTopbar from "./SupervisorTopbar";
 
 function PropertyDetails({ show, onClose }) {
+  const { id } = useParams();
+  const [property, setProperty] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const gettPropertyById = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:9090/property/propertyById/${id}`
+        );
+        if (response.ok) {
+          console.log("Fetched properties");
+        } else {
+          console.log("Failed to fetch properties");
+        }
+        const data = await response.json();
+        setProperty(data);
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+    };
+    gettPropertyById();
+  }, []);
+
+  const back = () => {
+    navigate("/properties");
+  };
+
   return (
     <>
-      <div>
-        <Modal show={show} onHide={onClose} size="lg">
-          <ModalHeader closeButton>
-            <h5>Propert Name</h5>
-          </ModalHeader>
-          <ModalBody>
-            <form className="px-2 add-item">
-              <div class="form-row row ">
-                <div class="form-group col-md-6">
-                  <label for="inputEmail4">Property Name</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="inputEmail4"
-                    placeholder="Rose Building"
-                    required
-                  />
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputState">Property Type</label>
-                  <select id="inputState" class="form-control">
-                    <option selected>Office Building</option>
-                    <option>Townhouse</option>
-                    <option>Multi-family house</option>
-                    <option>Single family house</option>
-                    <option>Apartment</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputAddress"
-                  placeholder="123 Mainway street"
-                  required
-                />
-              </div>
-
-              <div class="form-row row">
-                <div class="form-group col-md-6">
-                  <label for="inputCity">City</label>
-                  <input type="text" class="form-control" id="inputCity" />
-                </div>
-
-                <div class="form-group col-md-4">
-                  <label for="inputState">State</label>
-                  <select id="inputState" class="form-control">
-                    <option selected>Select state</option>
-                    <option>Harare</option>
-                    <option>Bulawayo</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-2">
-                  <label for="inputZip">Zip</label>
-                  <input type="text" class="form-control" id="inputZip" />
-                </div>
-              </div>
-              <div className="row">
-                <div class="form-group col-md-6">
-                  <label for="inputAddress2">Units / Rooms</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="inputAddress2"
-                  />
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputAddress2">Manager's email</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputAddress2"
-                    placeholder="johndoe@gmail.com"
-                  />
-                </div>
-              </div>
-            </form>
-          </ModalBody>
-          <ModalFooter>
-            <div className="modal-footer-buttons p-1 d-flex">
-              <button className="btn btn-danger m-1" onClick={onClose}>
-                Cancel
-              </button>
-              <button className="btn btn-add m-1" type="submit">
-                Save Changes
-              </button>
+      <SupervisorSidebar />
+      <div className="main-content">
+        <SupervisorTopbar />
+        <div className="card m-3 mx-5 p-2">
+          <div className="col">
+            <h5>
+              <span className="px-1">
+                <svg
+                  stroke="#000"
+                  fill="#000"
+                  stroke-width="0"
+                  viewBox="0 0 24 24"
+                  height="1.2em"
+                  width="1.2em"
+                  xmlns="http://www.w3.org/2000/svg"
+                  onClick={back}
+                >
+                  <path d="M21 11L6.414 11 11.707 5.707 10.293 4.293 2.586 12 10.293 19.707 11.707 18.293 6.414 13 21 13z"></path>
+                </svg>
+              </span>
+            </h5>
+          </div>
+          <div className="details-body">
+            <div className="details-container m-3">
+              <table className="table table-striped table-bordered table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th colSpan="2" className="text-left">
+                      {property.propertyName}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>Total tenants</strong>
+                    </td>
+                    <td>{property.totalTenants}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Total units</strong>
+                    </td>
+                    <td>{property.totalUnits}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Property type</strong>
+                    </td>
+                    <td>{property.type}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Property manager</strong>
+                    </td>
+                    <td>{property.propertyManager}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Contact email</strong>
+                    </td>
+                    <td>{property.contactEmail}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Contact phone number</strong>
+                    </td>
+                    <td>{property.contactPhone}</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Address</strong>
+                    </td>
+                    <td>{property.address}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </ModalFooter>
-        </Modal>
+          </div>
+
+          <div className="modal-footer-buttons p-1 d-flex">
+            <button className="btn btn-danger m-1" onClick={onClose}>
+              Delete property
+            </button>
+            <button className="btn btn-add m-1" type="submit">
+              Edit
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

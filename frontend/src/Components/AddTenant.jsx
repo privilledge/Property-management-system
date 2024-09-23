@@ -12,7 +12,7 @@ function AddTenant({ show, onClose }) {
             <form className="px-2 add-item">
               <div class="form-row row ">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Tenant Name</label>
+                  <label htmlFor="inputEmail4">Tenant Name</label>
                   <input
                     type="email"
                     class="form-control"
@@ -22,7 +22,7 @@ function AddTenant({ show, onClose }) {
                   />
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputState">Tenant Type</label>
+                  <label htmlFor="inputState">Tenant Type</label>
                   <select id="inputState" class="form-control">
                     <option selected>Office Building</option>
                     <option>Townhouse</option>
@@ -33,7 +33,7 @@ function AddTenant({ show, onClose }) {
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputAddress">Address</label>
+                <label htmlFor="inputAddress">Address</label>
                 <input
                   type="text"
                   class="form-control"
@@ -45,12 +45,12 @@ function AddTenant({ show, onClose }) {
 
               <div class="form-row row">
                 <div class="form-group col-md-6">
-                  <label for="inputCity">City</label>
+                  <label htmlFor="inputCity">City</label>
                   <input type="text" class="form-control" id="inputCity" />
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="inputState">State</label>
+                  <label htmlFor="inputState">State</label>
                   <select id="inputState" class="form-control">
                     <option selected>Select state</option>
                     <option>Harare</option>
@@ -58,13 +58,13 @@ function AddTenant({ show, onClose }) {
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="inputZip">Zip</label>
+                  <label htmlFor="inputZip">Zip</label>
                   <input type="text" class="form-control" id="inputZip" />
                 </div>
               </div>
               <div className="row">
                 <div class="form-group col-md-6">
-                  <label for="inputAddress2">Units / Rooms</label>
+                  <label htmlFor="inputAddress2">Units / Rooms</label>
                   <input
                     type="number"
                     class="form-control"
@@ -72,7 +72,7 @@ function AddTenant({ show, onClose }) {
                   />
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputAddress2">Manager's email</label>
+                  <label htmlFor="inputAddress2">Manager's email</label>
                   <input
                     type="text"
                     class="form-control"

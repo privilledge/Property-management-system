@@ -12,6 +12,12 @@ public class MaintenanceRequest {
     private Date requestMade;
     private String unit;
     private String property;
+    private String tenant;
+    private String issueDescription;
+    private String status;
+    private Date expectedCompletionDate;
+    private String priority;
+    private String comments;
 
     public Long getId() {
         return id;
@@ -93,11 +99,5 @@ public class MaintenanceRequest {
         this.comments = comments;
     }
 
-    private String tenant;
-    private String issueDescription;
-    private String status;
-    private Date expectedCompletionDate;
-    private String priority;
-    private String comments;
 
 }

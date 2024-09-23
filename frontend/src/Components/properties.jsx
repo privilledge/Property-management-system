@@ -5,19 +5,22 @@ import AddProperty from "./AddProperty";
 import { useEffect, useState } from "react";
 import PropertyDetails from "./PropertyDetails";
 import SearchBar from "./Searchbar";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Properties() {
   const [showAddModal, setAddShowModal] = useState(false);
   const [showPropertyModal, setShowPropertyModal] = useState(false);
   const [properties, setProperties] = useState([]);
+  const navigate = useNavigate();
+
   const handleShowAddModal = () => {
     setAddShowModal(true);
   };
   const handleHideAddModal = () => {
     setAddShowModal(false);
   };
-  const viewPropertyDetails = () => {
-    setShowPropertyModal(true);
+  const viewPropertyDetails = (id) => {
+    navigate(`/property-details/${id}`);
   };
   const handleHidePropertyModal = () => {
     setShowPropertyModal(false);
@@ -29,16 +32,18 @@ function Properties() {
         const response = await fetch(
           "http://localhost:9090/property/properties"
         );
+
         if (response.ok) {
-          console.log("Fetched");
+          console.log("Fetched properties");
         } else {
-          console("Fetched but another error occured");
+          console.log("Failed to fetch properties");
         }
+
         const data = await response.json();
-        console.log(data);
+
         setProperties(data);
       } catch (error) {
-        console.log("failed to fetch", error);
+        console.log("failed to fetch properties", error);
       }
     };
     getProperties();
@@ -69,7 +74,7 @@ function Properties() {
               <tbody>
                 {properties.map((property) => (
                   <tr
-                    onClick={viewPropertyDetails}
+                    onClick={() => viewPropertyDetails(property.id)}
                     style={{ cursor: "pointer" }}
                     key={property.id}
                   >
@@ -84,10 +89,6 @@ function Properties() {
           </div>
         </div>
         <AddProperty show={showAddModal} onClose={handleHideAddModal} />
-        <PropertyDetails
-          show={showPropertyModal}
-          onClose={handleHidePropertyModal}
-        />
       </div>
     </>
   );

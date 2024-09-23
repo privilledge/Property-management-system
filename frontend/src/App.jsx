@@ -13,6 +13,7 @@ import Payments from "./Components/Payments";
 import Settings from "./Components/Settings";
 import TenantDashboard from "./Components/TenantDashboard";
 import UserLease from "./Components/UserLease";
+import PropertyDetails from "./Components/PropertyDetails";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/tenant-dashboard" element={<TenantDashboard />} />
           <Route path="/lease" element={<UserLease />} />
+          <Route path="/property-details/:id" element={<PropertyDetails />} />
         </Routes>
       </BrowserRouter>
     </>

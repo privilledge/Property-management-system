@@ -1,7 +1,7 @@
 import AddUnit from "./AddUnit";
 import SupervisorSidebar from "./SupervisorSidebar";
 import SupervisorTopbar from "./SupervisorTopbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UnitDetails from "./UnitDetails";
 import SearchBar from "./Searchbar";
 function Units() {
@@ -19,6 +19,26 @@ function Units() {
   const handleHideUnitModal = () => {
     setShowUnitModal(false);
   };
+  const [units, setUnits] = useState([]);
+
+  useEffect(() => {
+    const getUnits = async () => {
+      try {
+        const response = await fetch("http://localhost:9090/units/getAllUnits");
+        if (response.ok) {
+          console.log("Fetched units");
+        } else {
+          console.log("Error fetching units");
+        }
+        const data = await response.json();
+        setUnits(data);
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+    };
+    getUnits();
+  }, []);
+
   return (
     <>
       <SupervisorSidebar />
@@ -42,24 +62,18 @@ function Units() {
                 </tr>
               </thead>
               <tbody>
-                <tr onClick={viewUnitDetails} style={{ cursor: "pointer" }}>
-                  <td>John Doe</td>
-                  <td>Joina City</td>
-                  <td>15th floor left wing</td>
-                  <td>23-10-2024</td>
-                </tr>
-                <tr>
-                  <td>Tom Mayor</td>
-                  <td>123 Mainway</td>
-                  <td>Full-house</td>
-                  <td>12-11-2024</td>
-                </tr>
-                <tr>
-                  <td>Jane Knox</td>
-                  <td>21 Streetwise</td>
-                  <td>Office 14</td>
-                  <td>21-12-2024</td>
-                </tr>
+                {units.map((unit) => (
+                  <tr
+                    onClick={viewUnitDetails}
+                    style={{ cursor: "pointer" }}
+                    key={unit.id}
+                  >
+                    <td>{unit.unitName}</td>
+                    <td>{unit.property?.propertyName}</td>
+                    <td>{unit.tenant}</td>
+                    <td>${unit.rentAmount}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

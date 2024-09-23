@@ -7,30 +7,38 @@ import jakarta.persistence.Id;
 import java.util.Date;
 
 public class UnitDto {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
+
+private String unitName;
+
     private String floor;
     private String size;
     private String rooms;
     private String bathrooms;
-    private String status;
+    private String tenant;
     private String rentAmount;
     private Boolean isAvailable;
     private Date leaseStartDate;
     private Date leaseEndDate;
-    private Long propertyId;
+    private PropertyDto property;
 
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
 
+    public String getUnitName() {
+        return unitName;
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
     public String getFloor() {
         return floor;
+    }
+
+    public PropertyDto getProperty() {
+        return property;
+    }
+
+    public void setProperty(PropertyDto property) {
+        this.property = property;
     }
 
     public void setFloor(String floor) {
@@ -61,12 +69,12 @@ public class UnitDto {
         this.bathrooms = bathrooms;
     }
 
-    public String getStatus() {
-        return status;
+    public String getTenant() {
+        return tenant;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTenant(String status) {
+        this.tenant = status;
     }
 
     public String getRentAmount() {
@@ -77,11 +85,11 @@ public class UnitDto {
         this.rentAmount = rentAmount;
     }
 
-    public Boolean getAvailable() {
+    public Boolean getIsAvailable() {
         return isAvailable;
     }
 
-    public void setAvailable(Boolean available) {
+    public void setIsAvailable(Boolean available) {
         isAvailable = available;
     }
 
@@ -101,11 +109,4 @@ public class UnitDto {
         this.leaseEndDate = leaseEndDate;
     }
 
-    public Long getPropertyId() {
-        return propertyId;
-    }
-
-    public void setPropertyId(Long propertyId) {
-        this.propertyId = propertyId;
-    }
 }

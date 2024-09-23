@@ -5,7 +5,7 @@ function SupervisorSidebar() {
     <>
       <nav className="sidebar">
         <div className="logo-div side-logo  text-center mt-5">
-          <h4 className=" logo">Codeluxe</h4>
+          <h4 className=" logo">Admin</h4>
         </div>
 
         <ul className="links">

@@ -12,7 +12,7 @@ function AddProperty({ show, onClose }) {
             <form className="px-2 add-item">
               <div class="form-row row ">
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Property Name</label>
+                  <label htmlFor="inputEmail4">Property Name</label>
                   <input
                     type="email"
                     class="form-control"
@@ -22,7 +22,7 @@ function AddProperty({ show, onClose }) {
                   />
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputState">Property Type</label>
+                  <label htmlFor="inputState">Property Type</label>
                   <select id="inputState" class="form-control">
                     <option selected>Office Building</option>
                     <option>Townhouse</option>
@@ -33,7 +33,7 @@ function AddProperty({ show, onClose }) {
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputAddress">Address</label>
+                <label htmlFor="inputAddress">Address</label>
                 <input
                   type="text"
                   class="form-control"
@@ -45,22 +45,22 @@ function AddProperty({ show, onClose }) {
 
               <div class="form-row row">
                 <div class="form-group col-md-6">
-                  <label for="inputCity">Total tenants</label>
+                  <label htmlFor="inputCity">Total tenants</label>
                   <input type="number" class="form-control" id="inputCity" />
                 </div>
 
                 <div class="form-group col-md-4">
-                  <label for="inputState">Total Units/Rooms</label>
+                  <label htmlFor="inputState">Total Units/Rooms</label>
                   <input type="number" class="form-control" id="inputCity" />
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="inputZip">Manager</label>
+                  <label htmlFor="inputZip">Manager</label>
                   <input type="text" class="form-control" id="inputZip" />
                 </div>
               </div>
               <div className="row">
                 <div class="form-group col-md-6">
-                  <label for="inputAddress2">Contact email</label>
+                  <label htmlFor="inputAddress2">Contact email</label>
                   <input
                     type="email"
                     class="form-control"
@@ -69,7 +69,7 @@ function AddProperty({ show, onClose }) {
                   />
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputAddress2">Contact phone</label>
+                  <label htmlFor="inputAddress2">Contact phone</label>
                   <input
                     type="number"
                     class="form-control"

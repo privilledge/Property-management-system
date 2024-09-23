@@ -5,7 +5,7 @@ function TenantSidebar() {
     <>
       <nav className="sidebar">
         <div className="logo-div side-logo  text-center mt-4">
-          <h3 className=" logo">codeluxe</h3>
+          <h3 className=" logo">Tenant</h3>
         </div>
 
         <ul className="links">

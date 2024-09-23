@@ -167,7 +167,8 @@ svg {
   font-size: 14px;
 }
 .modal-footer-buttons {
-  justify-content: space-between !important;
+  justify-content: flex-end !important;
+  /* justify-content: space-between !important; */
 }
 .add-item .form-group {
   margin-top: 20px;

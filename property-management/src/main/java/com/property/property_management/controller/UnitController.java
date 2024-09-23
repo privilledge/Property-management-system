@@ -1,6 +1,7 @@
 package com.property.property_management.controller;
 
 
+import com.property.property_management.dto.PropertyDto;
 import com.property.property_management.dto.UnitDto;
 import com.property.property_management.model.Property;
 import com.property.property_management.model.Unit;
@@ -31,22 +32,43 @@ public class UnitController {
 
     @PostMapping("/addUnit")
     public ResponseEntity<?> addUnit(@RequestBody UnitDto unitDto){
-        Optional<Property> selectedProperty = propertyRepository.findById(unitDto.getPropertyId());
 
+        Long propertyId = unitDto.getProperty().getId();
+                Optional<Property> selectedProperty = propertyRepository.findById(propertyId);
         if (selectedProperty.isPresent()) {
             Unit unit = new Unit(selectedProperty.get());
 
+            unit.setUnitName(unitDto.getUnitName());
             unit.setBathrooms(unitDto.getBathrooms());
             unit.setFloor(unitDto.getFloor());
             unit.setRentAmount(unitDto.getRentAmount());
             unit.setRooms(unitDto.getRooms());
             unit.setSize(unitDto.getSize());
-            unit.setStatus(unitDto.getStatus());
-            unit.setAvailable(unitDto.getAvailable());
+            unit.setTenant(unitDto.getTenant());
+            unit.setIsAvailable(unitDto.getIsAvailable());
             unit.setLeaseStartDate(unitDto.getLeaseStartDate());
             unit.setLeaseEndDate(unitDto.getLeaseEndDate());
 
-            unitRepository.save(unit);
+            Unit savedUnit=unitRepository.save(unit);
+            // Prepare response with PropertyDto
+            PropertyDto propertyDto = new PropertyDto();
+            propertyDto.setId(selectedProperty.get().getId());
+            propertyDto.setPropertyName(selectedProperty.get().getPropertyName());
+
+
+            // Prepare UnitDto for response
+            UnitDto responseDto = new UnitDto();
+            ;
+            responseDto.setBathrooms(savedUnit.getBathrooms());
+            responseDto.setFloor(savedUnit.getFloor());
+            responseDto.setRentAmount(savedUnit.getRentAmount());
+            responseDto.setRooms(savedUnit.getRooms());
+            responseDto.setSize(savedUnit.getSize());
+            responseDto.setTenant(savedUnit.getTenant());
+            responseDto.setIsAvailable(savedUnit.getAvailable());
+            responseDto.setLeaseStartDate(savedUnit.getLeaseStartDate());
+            responseDto.setLeaseEndDate(savedUnit.getLeaseEndDate());
+            responseDto.setProperty(propertyDto); // Add PropertyDto to response
             return ResponseEntity.ok("Unit added");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Property not found");
@@ -75,14 +97,15 @@ public class UnitController {
 
         if (selectedUnit.isPresent()) {
             Unit updatedUnit = selectedUnit.get();
-            Optional<Property> selectedProperty = propertyRepository.findById(unitDto.getPropertyId());
+            Optional<Property> selectedProperty = propertyRepository.findById(unitDto.getProperty().getId());
 
             if (selectedProperty.isPresent()) {
                 Property property = selectedProperty.get();
 
                 // Update the existing unit
+                updatedUnit.setUnitName(unitDto.getUnitName());
                 updatedUnit.setProperty(property); // Set the property object
-                updatedUnit.setAvailable(unitDto.getAvailable());
+                updatedUnit.setIsAvailable(unitDto.getIsAvailable());
                 updatedUnit.setBathrooms(unitDto.getBathrooms());
                 updatedUnit.setLeaseEndDate(unitDto.getLeaseEndDate());
                 updatedUnit.setLeaseStartDate(unitDto.getLeaseStartDate());
@@ -90,7 +113,7 @@ public class UnitController {
                 updatedUnit.setRentAmount(unitDto.getRentAmount());
                 updatedUnit.setRooms(unitDto.getRooms());
                 updatedUnit.setSize(unitDto.getSize());
-                updatedUnit.setStatus(unitDto.getStatus());
+                updatedUnit.setTenant(unitDto.getTenant());
 
                 unitRepository.save(updatedUnit);
 
@@ -113,6 +136,30 @@ public class UnitController {
         }
         else
             return "Unit not found";
+    }
+
+    @GetMapping("/getAvailableCount")
+    public int getAvailableUnits(){
+        List<Unit> units = unitRepository.findAll();
+        int count = 0;
+        for(Unit unit : units){
+            if(unit.getAvailable()){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    @GetMapping("/getOccupiedUnits")
+    public int getOccupiedUnite() {
+        List<Unit> units = unitRepository.findAll();
+        int count = 0;
+        for (Unit unit : units) {
+            if (!unit.getAvailable()) {
+                count++;
+            }
+        }
+        return count;
     }
 
 }

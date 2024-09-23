@@ -1,5 +1,7 @@
 package com.property.property_management.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -9,25 +11,36 @@ public class Unit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String unitName;
     private String floor;
     private String size;
     private String rooms;
     private String bathrooms;
-    private String status;
+    private String tenant;
     private String rentAmount;
     private Boolean isAvailable;
     private Date leaseStartDate;
     private Date leaseEndDate;
+
+
     @ManyToOne
     @JoinColumn(name = "property_id",nullable = false)
     private Property property;
 
+    public String getUnitName() {
+        return unitName;
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
 
     public Unit() {
     }
     public Unit(Property property) {
         this.property = property;
     }
+
 
 
     public Property getProperty() {
@@ -78,12 +91,12 @@ public class Unit {
         this.bathrooms = bathrooms;
     }
 
-    public String getStatus() {
-        return status;
+    public String getTenant() {
+        return tenant;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTenant(String status) {
+        this.tenant = status;
     }
 
     public String getRentAmount() {
@@ -98,7 +111,7 @@ public class Unit {
         return isAvailable;
     }
 
-    public void setAvailable(Boolean available) {
+    public void setIsAvailable(Boolean available) {
         isAvailable = available;
     }
 
