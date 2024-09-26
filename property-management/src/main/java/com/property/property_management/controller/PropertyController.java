@@ -1,25 +1,31 @@
 package com.property.property_management.controller;
 
 
+import com.property.property_management.dto.OccupancyStatsDto;
 import com.property.property_management.model.Property;
 import com.property.property_management.repository.PropertyRepository;
+import com.property.property_management.repository.UnitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping(path ="/property")
 public class PropertyController {
-    public PropertyController(PropertyRepository propertyRepository) {
+    public PropertyController(PropertyRepository propertyRepository,UnitRepository unitRepository) {
         this.propertyRepository = propertyRepository;
+        this.unitRepository=unitRepository;
     }
 
     @Autowired
     public PropertyRepository propertyRepository;
+    @Autowired
+    public UnitRepository unitRepository;
 
     @PostMapping("/add-property")
     public ResponseEntity<Property> addProperty(@RequestBody Property property){
@@ -71,6 +77,19 @@ public class PropertyController {
         }
         else return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Property not found");
 
+    }
+    @GetMapping("/occupancy-stats")
+    public List<OccupancyStatsDto> getOccupancyStats() {
+        List<Property> properties = propertyRepository.findAll();
+        List<OccupancyStatsDto> stats = new ArrayList<>();
+
+        for (Property property : properties) {
+            long available = unitRepository.countByPropertyAndIsAvailable(property, true);
+            long occupied = unitRepository.countByPropertyAndIsAvailable(property, false);
+            stats.add(new OccupancyStatsDto(property.getPropertyName(), available, occupied));
+        }
+
+        return stats;
     }
 
 

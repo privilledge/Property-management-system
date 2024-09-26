@@ -2,8 +2,8 @@ import SearchBar from "./Searchbar";
 function SupervisorTopbar() {
   return (
     <>
-      <div className="topbar">
-        <div className=" mt-2">
+      <div className="topbar px-2 py-0 d-flex">
+        <div className="">
           {/* <h5>Codeluxe Property Management System</h5> */}
         </div>
         <div className="imageIcon d-flex ">

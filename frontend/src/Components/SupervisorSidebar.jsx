@@ -3,7 +3,7 @@ import Logo from "../assets/logo.png";
 function SupervisorSidebar() {
   return (
     <>
-      <nav className="sidebar">
+      <nav className="sidebar fixed top-0 left-0">
         <div className="logo-div side-logo  text-center mt-5">
           <h4 className=" logo">Admin</h4>
         </div>

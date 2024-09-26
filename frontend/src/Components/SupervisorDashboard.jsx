@@ -1,3 +1,4 @@
+import PropertyOccupancyChart from "./PropertyOccupancyChart";
 import SupervisorSidebar from "./SupervisorSidebar";
 import SupervisorTopbar from "./SupervisorTopbar";
 
@@ -10,66 +11,70 @@ function SupervisorDashboard() {
         <SupervisorTopbar />
         <div className="contents">
           <div className=" mx-1 mt-4">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-              <div class="col">
-                <div class="card radius-10 border-start border-0 border-3 border-info">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+              <div className="col">
+                <div className="card radius-10 border-start border-0 border-3 border-info">
+                  <div className="card-body">
+                    <div className="d-flex align-items-center">
                       <div>
-                        <p class="mb-0 text-secondary">Total Tenants</p>
-                        <h4 class="my-1 text-info">4805</h4>
-                        <p class="mb-0 font-13">+2.5% from last week</p>
+                        <p className="mb-0 text-secondary">Total Tenants</p>
+                        <h4 className="my-1 text-info">4805</h4>
+                        <p className="mb-0 font-13">+2.5% from last week</p>
                       </div>
-                      <div class="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
-                        <i class="fa fa-shopping-cart"></i>
+                      <div className="widgets-icons-2 rounded-circle bg-gradient-scooter text-white ms-auto">
+                        <i className="fa fa-shopping-cart"></i>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col">
-                <div class="card radius-10 border-start border-0 border-3 border-danger">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center">
+              <div className="col">
+                <div className="card radius-10 border-start border-0 border-3 border-danger">
+                  <div className="card-body">
+                    <div className="d-flex align-items-center">
                       <div>
-                        <p class="mb-0 text-secondary">Total Rent Received</p>
-                        <h4 class="my-1 text-danger">$84,245</h4>
-                        <p class="mb-0 font-13">+5.4% from last week</p>
+                        <p className="mb-0 text-secondary">
+                          Total Rent Received
+                        </p>
+                        <h4 className="my-1 text-danger">$84,245</h4>
+                        <p className="mb-0 font-13">+5.4% from last week</p>
                       </div>
-                      <div class="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto">
-                        <i class="fa fa-dollar"></i>
+                      <div className="widgets-icons-2 rounded-circle bg-gradient-bloody text-white ms-auto">
+                        <i className="fa fa-dollar"></i>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col">
-                <div class="card radius-10 border-start border-0 border-3 border-success">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center">
+              <div className="col">
+                <div className="card radius-10 border-start border-0 border-3 border-success">
+                  <div className="card-body">
+                    <div className="d-flex align-items-center">
                       <div>
-                        <p class="mb-0 text-secondary">Maintenance Requests</p>
-                        <h4 class="my-1 text-success">34.6%</h4>
-                        <p class="mb-0 font-13">-4.5% from last week</p>
+                        <p className="mb-0 text-secondary">
+                          Maintenance Requests
+                        </p>
+                        <h4 className="my-1 text-success">34.6%</h4>
+                        <p className="mb-0 font-13">-4.5% from last week</p>
                       </div>
-                      <div class="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto">
-                        <i class="fa fa-bar-chart"></i>
+                      <div className="widgets-icons-2 rounded-circle bg-gradient-ohhappiness text-white ms-auto">
+                        <i className="fa fa-bar-chart"></i>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col">
-                <div class="card radius-10 border-start border-0 border-3 border-warning">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center">
+              <div className="col">
+                <div className="card radius-10 border-start border-0 border-3 border-warning">
+                  <div className="card-body">
+                    <div className="d-flex align-items-center">
                       <div>
-                        <p class="mb-0 text-secondary">Available units</p>
-                        <h4 class="my-1 text-warning">8.4K</h4>
-                        <p class="mb-0 font-13">+8.4% from last week</p>
+                        <p className="mb-0 text-secondary">Available units</p>
+                        <h4 className="my-1 text-warning">8.4K</h4>
+                        <p className="mb-0 font-13">+8.4% from last week</p>
                       </div>
-                      <div class="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto">
-                        <i class="fa fa-users"></i>
+                      <div className="widgets-icons-2 rounded-circle bg-gradient-blooker text-white ms-auto">
+                        <i className="fa fa-users"></i>
                       </div>
                     </div>
                   </div>
@@ -81,15 +86,12 @@ function SupervisorDashboard() {
           <div className="mx-1">
             <div className="row row-cols-1 row-cols-md-2 row-cols-xl-2 mt-4 stats">
               <div className="col">
-                <div className="card radius-10 p-2">
+                <div className="card radius-10 p-0">
                   <div className="card-title">
-                    <h6>Property occupancy stats</h6>
+                    <h6 className="p-2">Property occupancy stats</h6>
                   </div>
-                  <div className="card-body m-5">
-                    <h4 className="text-center">
-                      Bar graph showing units that are vacant and those that are
-                      not
-                    </h4>
+                  <div className="card-body m-2">
+                    <PropertyOccupancyChart />
                   </div>
                 </div>
               </div>

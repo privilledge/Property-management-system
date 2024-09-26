@@ -60,7 +60,7 @@ function PropertyDetails({ show, onClose }) {
           <div className="details-body">
             <div className="details-container m-3">
               <table className="table table-striped table-bordered table-hover">
-                <thead class="thead-dark">
+                <thead className="thead-dark">
                   <tr>
                     <th colSpan="2" className="text-left">
                       {property.propertyName}

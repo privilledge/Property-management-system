@@ -10,20 +10,20 @@ function AddProperty({ show, onClose }) {
           </ModalHeader>
           <ModalBody>
             <form className="px-2 add-item">
-              <div class="form-row row ">
-                <div class="form-group col-md-6">
+              <div className="form-row row ">
+                <div className="form-group col-md-6">
                   <label htmlFor="inputEmail4">Property Name</label>
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     id="inputEmail4"
                     placeholder="Rose Building"
                     required
                   />
                 </div>
-                <div class="form-group col-md-6">
+                <div className="form-group col-md-6">
                   <label htmlFor="inputState">Property Type</label>
-                  <select id="inputState" class="form-control">
+                  <select id="inputState" className="form-control">
                     <option selected>Office Building</option>
                     <option>Townhouse</option>
                     <option>Multi-family house</option>
@@ -32,47 +32,55 @@ function AddProperty({ show, onClose }) {
                   </select>
                 </div>
               </div>
-              <div class="form-group">
+              <div className="form-group">
                 <label htmlFor="inputAddress">Address</label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="inputAddress"
                   placeholder="123 Mainway street"
                   required
                 />
               </div>
 
-              <div class="form-row row">
-                <div class="form-group col-md-6">
+              <div className="form-row row">
+                <div className="form-group col-md-6">
                   <label htmlFor="inputCity">Total tenants</label>
-                  <input type="number" class="form-control" id="inputCity" />
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="inputCity"
+                  />
                 </div>
 
-                <div class="form-group col-md-4">
+                <div className="form-group col-md-4">
                   <label htmlFor="inputState">Total Units/Rooms</label>
-                  <input type="number" class="form-control" id="inputCity" />
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="inputCity"
+                  />
                 </div>
-                <div class="form-group col-md-2">
+                <div className="form-group col-md-2">
                   <label htmlFor="inputZip">Manager</label>
-                  <input type="text" class="form-control" id="inputZip" />
+                  <input type="text" className="form-control" id="inputZip" />
                 </div>
               </div>
               <div className="row">
-                <div class="form-group col-md-6">
+                <div className="form-group col-md-6">
                   <label htmlFor="inputAddress2">Contact email</label>
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     id="inputAddress2"
                     placeholder="example@gmail.com"
                   />
                 </div>
-                <div class="form-group col-md-6">
+                <div className="form-group col-md-6">
                   <label htmlFor="inputAddress2">Contact phone</label>
                   <input
                     type="number"
-                    class="form-control"
+                    className="form-control"
                     id="inputAddress2"
                     placeholder="0748234198"
                   />
